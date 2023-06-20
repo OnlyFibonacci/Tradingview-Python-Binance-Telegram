@@ -1,0 +1,5 @@
+flask
+gunicorn
+binance-connector
+pyTelegramBotAPI
+urllib3==1.21.1

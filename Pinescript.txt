@@ -1,0 +1,90 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © only_fibonacci
+
+//@version=5
+indicator("ALERT")
+rsi = ta.rsi(close,14)
+
+al = rsi > 0
+sat = rsi < 0
+rsiSinyal = al ? close : sat ? -1 * close : 0
+
+
+
+
+
+
+
+// APIKEY = "c9WuFWTmEtHdqpVyGJr8adKdBoNdFT39YmyEvH2oAdcM56ujAkhl7qPAjy2RJnRB"
+APIKEY = input.string(defval = "", title = "BINANCE API KEY")
+// SECRETKEY = "yhpHKjAWhuiWpHkd9QnBWRsELMRDuor4p35DX8d2aff0j9wjV03Gbh214XKUikwK"
+SECRETKEY = input.string(defval = "", title = "BINANCE SECRET KEY")
+// TELEGRAMTOKEN = "5727313931:AAG_XaHvSGnz1ZbXJzyRuGpTdr0xhAk_U-Y"
+TELEGRAMTOKEN = input.string(defval = "", title = "TELEGRAM BOT TOKEN")
+// TELEGRAMID = "@denemeler5454"
+TELEGRAMID = input.string(defval = "", title = "TELEGRAM CHAT ID")
+quantity = input.float(defval = 0, title = "ADET")
+
+ADET = str.tostring(quantity)
+
+
+
+
+
+alarmTetikle(sembol,sinyal)=>
+    durum = request.security(sembol,timeframe.period,sinyal)
+    mesaj = durum > 0 ? "BUY" : durum < 0 ? "SELL" : ""
+    if durum != 0 and str.length(sembol) > 1
+        alarmMesajiJSON =  '{"ticker":"'+syminfo.ticker(sembol)+'","exchange": "BINANCE", "price": "'+str.tostring(math.abs(durum))+'", "side": "'+mesaj+'","quantity": "'+ADET+'","telegramBotApi": "'+TELEGRAMTOKEN+'","telegramUserId": "'+TELEGRAMID+'","binanceApiKey":"'+APIKEY+'", "binanceSecretKey": "'+SECRETKEY+'" }'
+        
+        alert(message = alarmMesajiJSON, freq = alert.freq_once_per_bar_close)
+
+sembol1 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S1")
+sembol2 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S2")
+sembol3 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S3")
+sembol4 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S4")
+sembol5 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S5")
+sembol6 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S6")
+sembol7 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S7")
+sembol8 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S8")
+sembol9 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S9")
+sembol10 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S10")
+sembol11 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S11")
+sembol12 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S12")
+sembol13 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S13")
+sembol14 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S14")
+sembol15 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S15")
+sembol16 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S16")
+sembol17 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S17")
+sembol18 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S18")
+sembol19 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S19")
+sembol20 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S20")
+sembol21 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S21")
+sembol22 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S22")
+sembol23 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S23")
+sembol24 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S24")
+sembol25 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S25")
+sembol26 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S26")
+sembol27 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S27")
+sembol28 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S28")
+sembol29 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S29")
+sembol30 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S30")
+sembol31 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S31")
+sembol32 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S32")
+sembol33 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S33")
+sembol34 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S34")
+sembol35 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S35")
+sembol36 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S36")
+sembol37 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S37")
+sembol38 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S38")
+sembol39 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S39")
+sembol40 = input.symbol(defval = "", title = "Symbol", group = "SCANNER",inline = "S40")
+
+
+alarmTetikle(sembol1,rsiSinyal)
+alarmTetikle(sembol2,rsiSinyal)
+
+
+
+
+
